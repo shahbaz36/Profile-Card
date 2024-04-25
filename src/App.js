@@ -34,21 +34,17 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill {...skills[0]} />
-      <Skill {...skills[1]} />
-      <Skill {...skills[2]} />
-      <Skill {...skills[3]} />
-      <Skill {...skills[4]} />
-      <Skill {...skills[5]} />
-      <Skill {...skills[6]} />
+      <Skill {...skills} />
     </div>)
 }
 
 function Skill(props) {
-  return (
-    <div className="skill" style={{ backgroundColor: props.bgColor }}>
-      {props.skill}
-    </div>)
+  const skills = Object.values(props);
+  return skills.map((skill) => (
+    <div key={skill.skill} className="skill" style={{ backgroundColor: skill.bgColor }}>
+      {skill.skill}
+    </div>
+  ));
 }
 
 export default App;
